@@ -2,6 +2,8 @@
 
 A very simple CPU and the target platform of the [Large Headache Compiler](https://github.com/Ryz3D/LHC). This repository contains all hardware plans and an implementation in Logisim.
 
+![SPEAR PCB](step3/spear_pinout.png)
+
 ## Features
 
 - 16-bit instruction register
