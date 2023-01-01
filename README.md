@@ -49,10 +49,10 @@ Onto bus from...
 
 To use a literal value in assembly code simply write the value on the left side:
 
-```
-8 -> RAM_P
-127 -> RAM
-```
+| Operation | Assembly     | CW       | LIT      |
+| --------- | ------------ | -------- | -------- |
+| RAM_P = 8 | `8 -> RAM_P` | 00000010 | 00001000 |
+| RAM = 127 | `127 -> RAM` | 00000001 | 01111111 |
 
 ### RAM functions
 
