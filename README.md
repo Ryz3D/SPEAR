@@ -38,10 +38,12 @@ To bus from...
 - **CW6** (`ADD`): Adder (`A` + `B`)
 - **CW7** (`INV`): Inverse (two's complement) of A (-`A`)
 
+The basic bus structure is also shown in the following diagram.
+
+![Diagram of bus and control word bits](step1/bus_diagram.svg)
+
 > [!WARNING]
 > Multiple read bits (CW0-CW3) are possible, but multiple write bits (CW4-CW7) may damage actual hardware. Be careful to activate only one of these bits. (_Especially when erasing flash chips, erasing typically writes all ones, overwrite the entire chip to all zeros_)
-
-![Diagram of bus and control word bits](bus_diagram.svg)
 
 ### Special addresses
 
