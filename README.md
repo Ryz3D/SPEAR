@@ -29,8 +29,8 @@ The CW controls which component writes to the bus (MSB bits 4-7) and which compo
 From bus to...
 - **CW0** (`RAM`): RAM
 - **CW1** (`RAM_P`): RAM pointer
-- **CW2** (`A`): A
-- **CW3** (`B`): B
+- **CW2** (`A`): A register
+- **CW3** (`B`): B register
 
 To bus from...
 - **CW4** (`RAM`): RAM
@@ -100,7 +100,18 @@ A return statement has to be written manually, like in the following example (_I
 | Perform jump (set 8 LSB)    | `2 -> RAM_P` | 00000010 | 00000010 |
 |                             | `ADD -> RAM` | 01000001 | 00000000 |
 
+Labels can be defined using `;` and inserted as an address byte using `:`. The LHC automatically selects the MSB/LSB byte based on the value of `RAM_P`.
+
+| Description                 | Assembly     | CW       | LIT      |
+| --------------------------- | ------------ | -------- | -------- |
+| Define label                | `;infiniteloop` | - | - |
+| Prepare jump (set 8 MSB)    | `1 -> RAM_P` | 00000010 | 00000001 |
+|                             | `:infiniteloop -> RAM` | 00000001 | 00000000 |
+| Perform jump (set 8 LSB)    | `2 -> RAM_P` | 00000010 | 00000010 |
+|                             | `:infiniteloop -> RAM` | 00000001 | 00000000 |
+
 ## Mistakes
 
-The PCB design is missing some pull-down resistors to function properly. Namely some for unused inputs (NOR1, NOR2, NOR3, ROM A16-A17, RAM A8-A14) aswell as for the upper byte of `IR_IN` (IR_IN8-IR_IN15). This is fixable by soldering these resistors to the back. Pins IR_IN8-IR_IN15 can be accessed via the pins of BUF3-BUF4. \
-Also the reset resistor should have a slightly lower resistance value, 270 Ohms seems to work well.
+- The PCB design is missing some pull-down resistors to function properly. Namely some for unused inputs (NOR1, NOR2, NOR3, ROM A16-A17, RAM A8-A14) aswell as for the upper byte of IR_IN (IR_IN8-IR_IN15). This is fixable by soldering these resistors to the back. Pins IR_IN8-IR_IN15 can be accessed via the pins of BUF3-BUF4.
+- The reset pull-down resistor R10 should have a slightly lower resistance value, 270 Ohms seems to work well.
+- There is no onboard reset circuit, you need to press the reset button manually after powering the board or provide an external (positive) reset pulse.
