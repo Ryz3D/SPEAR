@@ -102,4 +102,5 @@ A return statement has to be written manually, like in the following example (_I
 
 ## Mistakes
 
-The PCB design is missing some pull-down resistors to function properly. Namely some for unused inputs (NOR1, NOR2, NOR3, ROM A16-A17, RAM A8-A14) aswell as for the upper byte of `IR_IN` (IR_IN8-IR_IN15). This is fixable by soldering these resistors to the back. Pins IR_IN8-IR_IN15 can be accessed via the pins of BUF3-BUF4.
+The PCB design is missing some pull-down resistors to function properly. Namely some for unused inputs (NOR1, NOR2, NOR3, ROM A16-A17, RAM A8-A14) aswell as for the upper byte of `IR_IN` (IR_IN8-IR_IN15). This is fixable by soldering these resistors to the back. Pins IR_IN8-IR_IN15 can be accessed via the pins of BUF3-BUF4. \
+Also the reset resistor should have a slightly lower resistance value, 270 Ohms seems to work well.
