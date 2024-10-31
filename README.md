@@ -115,3 +115,21 @@ Labels can be defined using `;` and inserted as an address byte using `:`. The L
 - The PCB design is missing some pull-down resistors to function properly. Namely some for unused inputs (NOR1, NOR2, NOR3, ROM A16-A17, RAM A8-A14) aswell as for the upper byte of IR_IN (IR_IN8-IR_IN15). This is fixable by soldering these resistors to the back. Pins IR_IN8-IR_IN15 can be accessed via the pins of BUF3-BUF4.
 - The reset pull-down resistor R10 should have a slightly lower resistance value, 270 Ohms seems to work well.
 - There is no onboard reset circuit, you need to press the reset button manually after powering the board or provide an external (positive) reset pulse.
+
+## Required ICs
+
+Using CMOS variants (74HCxxx) should be possible, but has not been tested yet.
+
+| IC       | Type     | Quantity |
+| -------- | -------- | -------- |
+| 39SF020A | EEPROM   | 2        |
+| 62256    | RAM      | 1        |
+| 74LS04   | Inverter | 4        |
+| 74LS08   | AND gate | 9        |
+| 74LS11   | AND gate | 2        |
+| 74LS86   | XOR gate | 6        |
+| 74LS126  | Buffer   | 16       |
+| 74LS260  | NOR gate | 3        |
+| 74LS283  | Adder    | 2        |
+| 74LS374  | Register | 6        |
+| 555      | Timer    | 1        |
